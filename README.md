@@ -2,7 +2,9 @@
 
 A modern, interactive visual generator for Glassmorphism UI components. Built entirely with React and Tailwind CSS v4.
 
-![TailGlass Preview](./screenshot.png)
+| App Interface | Core Features |
+| :---------: | :------------ |
+| ![TailGlass Preview](./screenshot.png) | **Live Sliders**<br>Real-time control over blur and opacity.<br><br>**Dynamic Tinting**<br>Customise base hex colours.<br><br>**Dual Export**<br>Copy raw CSS or Tailwind v4 classes. |
 
 ## What is this?
 
@@ -12,12 +14,9 @@ I built TailGlass to fix that workflow. It's a visual sandbox that lets you dial
 
 ## Features
 
-* **Live Sliders:** Real-time control over blur intensity, background opacity, and border transparency.
-* **Dynamic Colour Tinting:** Customise the base hex colour of your glass to fit light, dark, or branded themes.
 * **Context Testing:** Toggle between default blobs, mesh gradients, and high-res photography to ensure your text stays readable in real-world scenarios.
 * **Quick Presets:** One-click buttons for standard looks like 'Frosted', 'Ghost', and 'Deep Sea'.
-* **Dual Export:** Export to raw CSS or instantly copy the exact string of Tailwind v4 utility classes.
-* **Modular Architecture:** Built with clean, separated React components for easy scaling.
+* **Modular Architecture:** Built with clean, separated React components for easy scaling and maintenance.
 
 ## Tech Stack
 
