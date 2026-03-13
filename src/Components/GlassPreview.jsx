@@ -13,13 +13,16 @@ export default function GlassPreview({ blur, opacity, color, borderOpacity }) {
     <div className={`relative flex items-center justify-center min-h-125 border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 ${bgStyles[bgType]}`}>
       
       {/* Background Selector Toggle */}
-      <div className="absolute top-4 left-4 z-20 flex gap-2 bg-black/40 p-1 rounded-lg border border-white/10 backdrop-blur-md">
+      {/* The Container */}
+      <div className="absolute top-4 left-4 z-20 flex gap-1 p-1 bg-black/40 backdrop-blur-md rounded-full border border-white/10 shadow-xl">
         {['blobs', 'mesh', 'image'].map((type) => (
           <button
             key={type}
             onClick={() => setBgType(type)}
-            className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${
-              bgType === type ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-white'
+            className={`px-4 py-1.5 text-[10px] font-bold tracking-wider uppercase rounded-full transition-all duration-300 ${
+              bgType === type 
+                ? 'bg-white/20 text-white shadow-md border border-white/20 backdrop-blur-md' // Active state
+                : 'text-slate-400 hover:text-white hover:bg-white/5' // Inactive state
             }`}
           >
             {type}
@@ -45,7 +48,7 @@ export default function GlassPreview({ blur, opacity, color, borderOpacity }) {
         }}
         className="relative z-10 w-[80%] h-64 rounded-2xl shadow-2xl flex items-center justify-center group transition-all duration-300"
       >
-        <p className="text-white/20 font-black text-4xl uppercase tracking-widest group-hover:text-white/40 transition-colors">
+        <p className="text-2xl font-light tracking-[0.5em] text-white/20 uppercase group-hover:text-white/40 transition-colors pointer-events-none select-none">
           Preview
         </p>
       </div>
