@@ -5,13 +5,27 @@ function App() {
   const [blur, setBlur] = useState(10);
   const [opacity, setOpacity] = useState(20);
   const [color, setColor] = useState('#ffffff');
+  const [copyText, setCopyText] = useState("Copy CSS Code");
+
+  // Map blur px to Tailwind classes
+  const getBlurClass = (val) => {
+    if (val <= 0) return '';
+    if (val <= 4) return 'backdrop-blur-sm';
+    if (val <= 8) return 'backdrop-blur-md';
+    if (val <= 12) return 'backdrop-blur-lg';
+    if (val <= 16) return 'backdrop-blur-xl';
+    if (val <= 24) return 'backdrop-blur-2xl';
+    return 'backdrop-blur-3xl';
+  };
+
+  const tailwindClasses = `bg-white/[${(opacity / 100).toFixed(2)}] ${getBlurClass(blur)} border border-white/20 rounded-2xl`;
 
   // 2. This string is the magic. It's the CSS code that updates as you move sliders.
   const generatedCode = `background: ${color}${opacity.toString(16)};
-backdrop-filter: blur(${blur}px);
--webkit-backdrop-filter: blur(${blur}px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-border-radius: 16px;`;
+    backdrop-filter: blur(${blur}px);
+    -webkit-backdrop-filter: blur(${blur}px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;`;
 
   return (
     <div className="min-h-screen bg-[#030303] relative overflow-hidden flex flex-col items-center justify-center p-6">
@@ -52,12 +66,29 @@ border-radius: 16px;`;
               </div>
 
               <div className="pt-4">
-                <button 
-                  onClick={() => navigator.clipboard.writeText(generatedCode)}
-                  className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-500/20"
-                >
-                  Copy CSS Code
-                </button>
+                <div className="pt-4 space-y-3">
+                  <button 
+                    onClick={() => {
+                      navigator.clipboard.writeText(generatedCode);
+                      setCopyText("CSS Copied! ✅");
+                      setTimeout(() => setCopyText("Copy CSS Code"), 2000);
+                    }}
+                    className="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 rounded-xl transition-all active:scale-95 border border-white/10"
+                  >
+                    {copyText}
+                  </button>
+
+                  <button 
+                    onClick={() => {
+                      navigator.clipboard.writeText(tailwindClasses);
+                      // You can add another state for this button's text if you want
+                      alert("Tailwind Classes Copied!");
+                    }}
+                    className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-500/20"
+                  >
+                    Copy Tailwind Classes
+                  </button>
+                </div>
               </div>
             </div>
           </div>
