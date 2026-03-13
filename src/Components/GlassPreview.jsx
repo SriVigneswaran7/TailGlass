@@ -10,9 +10,9 @@ export default function GlassPreview({ blur, opacity, color, borderOpacity }) {
   };
 
   return (
-    <div className={`relative flex items-center justify-center min-h-[500px] border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 ${bgStyles[bgType]}`}>
+    <div className={`relative flex items-center justify-center min-h-125 border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 ${bgStyles[bgType]}`}>
       
-      {/* BACKGROUND SELECTOR TOGGLE */}
+      {/* Background Selector Toggle */}
       <div className="absolute top-4 left-4 z-20 flex gap-2 bg-black/40 p-1 rounded-lg border border-white/10 backdrop-blur-md">
         {['blobs', 'mesh', 'image'].map((type) => (
           <button
@@ -27,7 +27,7 @@ export default function GlassPreview({ blur, opacity, color, borderOpacity }) {
         ))}
       </div>
 
-      {/* RENDER BLOBS ONLY IF TYPE IS BLOBS */}
+      {/* Render Blobs Only If Type Is Blobs */}
       {bgType === 'blobs' && (
         <>
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-600 rounded-full blur-[120px] opacity-30 animate-pulse"></div>
@@ -35,7 +35,7 @@ export default function GlassPreview({ blur, opacity, color, borderOpacity }) {
         </>
       )}
 
-      {/* THE GLASS CARD */}
+      {/* Glass Card */}
       <div 
         style={{ 
           backgroundColor: `${color}${Math.round(opacity * 2.55).toString(16).padStart(2, '0')}`,

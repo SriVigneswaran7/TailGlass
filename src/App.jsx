@@ -44,7 +44,7 @@ function App() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white/[0.03] border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl space-y-8">
+          <div className="bg-white/3 border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl space-y-8">
             <h2 className="text-white font-bold mb-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-indigo-500 rounded-full"></span> Configuration
             </h2>
@@ -78,12 +78,12 @@ function App() {
               </div>
             </div>
 
-            {/* BUTTONS WRAPPED IN PT-4 SPACE-Y-3 */}
+            {/* Buttons */}
             <div className="pt-4 space-y-3">
               <button 
                 onClick={() => {
                   navigator.clipboard.writeText(generatedCode);
-                  setCopyText("CSS Copied! ✅");
+                  setCopyText("CSS Copied!");
                   setTimeout(() => setCopyText("Copy CSS Code"), 2000);
                 }}
                 className="w-full bg-white/5 hover:bg-white/10 text-white font-bold py-3 rounded-xl transition-all active:scale-95 border border-white/10"
@@ -108,10 +108,10 @@ function App() {
         </div>
       </div>
 
-      {/* TOAST MOVED OUTSIDE THE GRID SO IT FLOATS */}
+      {/* Toast */}
       {showToast && (
         <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-8 py-4 rounded-full shadow-2xl font-bold animate-bounce z-50 border border-white/20">
-          🚀 Tailwind Classes Copied!
+          Tailwind Classes Copied!
         </div>
       )}
     </div>
