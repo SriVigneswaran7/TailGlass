@@ -30,7 +30,7 @@ I built TailGlass to fix that workflow. It's a visual sandbox that lets you dial
 If you want to pull this down and run it on your own machine, you'll need Node.js installed.
 
 1. Clone the repository:
-   `git clone https://github.com/SriVigneswaran7/tailglass.git`
+   `git clone https://github.com/SriVigneswaran7/TailGlass.git`
 
 2. Navigate into the directory:
    `cd tailglass`
