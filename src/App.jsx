@@ -9,6 +9,7 @@ function App() {
   const [color, setColor] = useState('#ffffff');
   const [copyText, setCopyText] = useState("Copy CSS Code");
   const [showToast, setShowToast] = useState(false);
+  
 
   const getBlurClass = (val) => {
     if (val <= 0) return '';
@@ -29,10 +30,10 @@ function App() {
   };
 
   const generatedCode = `background: ${color}${opacity.toString(16)};
-backdrop-filter: blur(${blur}px);
--webkit-backdrop-filter: blur(${blur}px);
-border: 1px solid rgba(255, 255, 255, ${borderOpacity / 100});
-border-radius: 16px;`;
+    backdrop-filter: blur(${blur}px);
+    -webkit-backdrop-filter: blur(${blur}px);
+    border: 1px solid rgba(255, 255, 255, ${borderOpacity / 100});
+    border-radius: 16px;`;
 
   return (
     <div className="min-h-screen bg-[#030303] flex flex-col items-center justify-center p-6 font-sans">
@@ -58,6 +59,22 @@ border-radius: 16px;`;
                 <button onClick={() => applyPreset(16, 20, 30)} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-xs text-white rounded-lg border border-white/10">Frosted</button>
                 <button onClick={() => applyPreset(4, 10, 15)} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-xs text-white rounded-lg border border-white/10">Ghost</button>
                 <button onClick={() => applyPreset(25, 40, 10)} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-xs text-white rounded-lg border border-white/10">Deep Sea</button>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex justify-between mb-3">
+                <label className="text-slate-300 text-sm font-semibold">Glass Tint</label>
+                <span className="text-indigo-400 font-mono text-sm uppercase">{color}</span>
+              </div>
+              <div className="flex gap-4 items-center">
+                <input 
+                  type="color" 
+                  value={color} 
+                  onChange={(e) => setColor(e.target.value)} 
+                  className="w-12 h-12 rounded-lg bg-transparent border-none cursor-pointer"
+                />
+                <p className="text-slate-500 text-xs italic">Choose a color to tint the glass</p>
               </div>
             </div>
 
