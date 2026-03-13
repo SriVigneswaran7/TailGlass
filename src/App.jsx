@@ -7,9 +7,7 @@ function App() {
   const [opacity, setOpacity] = useState(20);
   const [borderOpacity, setBorderOpacity] = useState(20);
   const [color, setColor] = useState('#ffffff');
-  const [copyText, setCopyText] = useState("Copy CSS Code");
-  const [showToast, setShowToast] = useState(false);
-  
+  const [toastMessage, setToastMessage] = useState('');
 
   const getBlurClass = (val) => {
     if (val <= 0) return '';
@@ -21,7 +19,7 @@ function App() {
     return 'backdrop-blur-3xl';
   };
 
-  const tailwindClasses = `bg-white/[${(opacity / 100).toFixed(2)}] ${getBlurClass(blur)} border border-white/${(borderOpacity / 100).toFixed(2)} rounded-2xl`;
+  const tailwindClasses = `bg-[${color}]/[${(opacity / 100).toFixed(2)}] ${getBlurClass(blur)} border border-white/${(borderOpacity / 100).toFixed(2)} rounded-2xl`;
 
   const applyPreset = (b, o, bo) => {
     setBlur(b);
@@ -29,21 +27,22 @@ function App() {
     setBorderOpacity(bo);
   };
 
-  const generatedCode = `background: ${color}${opacity.toString(16)};
-    backdrop-filter: blur(${blur}px);
-    -webkit-backdrop-filter: blur(${blur}px);
-    border: 1px solid rgba(255, 255, 255, ${borderOpacity / 100});
-    border-radius: 16px;`;
-
   return (
-    <div className="min-h-screen bg-[#030303] flex flex-col items-center justify-center p-6 font-sans">
+    <div className="min-h-screen bg-slate-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] flex flex-col items-center py-10 px-4 font-sans text-slate-200">
       <div className="relative z-10 w-full max-w-5xl">
         <header className="text-center mb-12">
-          <h1 className="text-white text-6xl font-black tracking-tighter mb-2">TailGlass</h1>
-          <p className="text-slate-400 font-medium">Modern Glassmorphism Generator for Tailwind v4</p>
+          <h1 className="text-6xl font-extrabold tracking-tight mb-3 text-transparent bg-clip-text bg-linear-to-b from-white to-slate-400 drop-shadow-sm">
+            TailGlass
+          </h1>
+          <p className="text-slate-400 font-medium tracking-wide">
+            Modern Glassmorphism Generator for Tailwind v4
+          </p>
         </header>
 
+        {/* The Main Grid holding both the Controls and the Preview */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Left Side: Controls */}
           <div className="bg-white/3 border border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl space-y-8">
             <h2 className="text-white font-bold mb-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-indigo-500 rounded-full"></span> Configuration
@@ -56,9 +55,9 @@ function App() {
             <div>
               <label className="text-slate-300 text-sm font-semibold block mb-3">Quick Presets</label>
               <div className="flex gap-2">
-                <button onClick={() => applyPreset(16, 20, 30)} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-xs text-white rounded-lg border border-white/10">Frosted</button>
-                <button onClick={() => applyPreset(4, 10, 15)} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-xs text-white rounded-lg border border-white/10">Ghost</button>
-                <button onClick={() => applyPreset(25, 40, 10)} className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-xs text-white rounded-lg border border-white/10">Deep Sea</button>
+                <button onClick={() => applyPreset(16, 20, 30)} className="px-4 py-1.5 text-xs font-medium text-slate-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:text-white transition-all duration-300">Frosted</button>
+                <button onClick={() => applyPreset(4, 10, 15)} className="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:text-white transition-all duration-300">Ghost</button>
+                <button onClick={() => applyPreset(25, 40, 10)} className="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:text-white transition-all duration-300">Deep Sea</button>
               </div>
             </div>
 
@@ -79,43 +78,49 @@ function App() {
             </div>
 
             {/* Buttons */}
-            <div className="pt-4 space-y-3">
+            <div className="flex flex-col gap-3">
               <button 
                 onClick={() => {
-                  navigator.clipboard.writeText(generatedCode);
-                  setCopyText("CSS Copied!");
-                  setTimeout(() => setCopyText("Copy CSS Code"), 2000);
+                  const cssString = `background-color: ${color}${Math.round(opacity * 2.55).toString(16).padStart(2, '0')};\nbackdrop-filter: blur(${blur}px);\n-webkit-backdrop-filter: blur(${blur}px);\nborder: 1px solid rgba(255, 255, 255, ${borderOpacity / 100});`;
+                  navigator.clipboard.writeText(cssString);
+                  setToastMessage('CSS Code Copied!');
+                  setTimeout(() => setToastMessage(''), 3000);
                 }}
-                className="w-full bg-white/5 hover:bg-white/10 text-white font-bold py-3 rounded-xl transition-all active:scale-95 border border-white/10"
+                className="w-full py-3 rounded-xl bg-white/5 text-slate-300 font-medium border border-white/10 hover:bg-white/10 hover:text-white transition-all duration-300 active:scale-[0.98]"
               >
-                {copyText}
+                Copy CSS Code
               </button>
-
+    
               <button 
                 onClick={() => {
                   navigator.clipboard.writeText(tailwindClasses);
-                  setShowToast(true);
-                  setTimeout(() => setShowToast(false), 3000);
+                  setToastMessage('Tailwind Classes Copied!');
+                  setTimeout(() => setToastMessage(''), 3000);
                 }}
-                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-500/20"
+                className="w-full py-3 rounded-xl bg-linear-to-r from-indigo-600 to-violet-600 text-white font-bold border border-indigo-400/30 shadow-[0_0_20px_rgba(79,70,229,0.2)] hover:shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:scale-[1.02] transition-all duration-300 active:scale-[0.98]"
               >
                 Copy Tailwind Classes
               </button>
             </div>
           </div>
 
+          {/* Right Side: The Preview Component (Now safely inside the grid!) */}
           <GlassPreview blur={blur} opacity={opacity} color={color} borderOpacity={borderOpacity} />
+          
         </div>
       </div>
 
-      {/* Toast */}
-      {showToast && (
-        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-8 py-4 rounded-full shadow-2xl font-bold animate-bounce z-50 border border-white/20">
-          Tailwind Classes Copied!
+      {/* The Dynamic Toast Notification */}
+      {toastMessage && (
+        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.5)] text-sm font-medium text-white animate-bounce">
+          <div className="flex items-center justify-center w-5 h-5 rounded-full bg-green-400/20 text-green-400 shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+            ✓
+          </div>
+          {toastMessage}
         </div>
       )}
     </div>
   );
 }
 
-export default App
+export default App;
