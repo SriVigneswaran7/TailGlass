@@ -1,16 +1,19 @@
-# React + Vite
+# TailGlass
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance **Glassmorphism Generator** built for **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+## Features
+- **Real-time Preview**: Adjust blur and opacity with instant visual feedback.
+- **Tailwind v4 Optimised**: Built using the latest CSS-first engine.
+- **One-Click Export**: Copy production-ready CSS to your clipboard instantly.
+- **Responsive Design**: Works perfectly on all screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- **React** (Vite)
+- **Tailwind CSS v4**
+- **Lucide React** (Optional for icons)
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+1. Clone the repo: `git clone https://github.com/SriVigneswaran7/TailGlass.git`
+2. Install deps: `npm install --legacy-peer-deps`
+3. Run dev: `npm run dev`
