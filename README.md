@@ -51,6 +51,10 @@ If you want to pull this down and run it on your own machine, you'll need Node.j
 3. Once you're happy, hit either **Copy CSS Code** or **Copy Tailwind Classes**.
 4. Paste the generated code directly into your project.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 
 *Built by Sri Vigneswaran as a tool to speed up UI development.*
