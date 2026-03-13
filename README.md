@@ -1,4 +1,4 @@
-# 🧊 TailGlass
+# TailGlass
 
 A modern, interactive visual generator for Glassmorphism UI components. Built entirely with React and Tailwind CSS v4.
 
