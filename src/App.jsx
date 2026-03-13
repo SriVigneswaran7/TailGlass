@@ -104,7 +104,7 @@ function App() {
             </div>
           </div>
 
-          {/* Right Side: The Preview Component (Now safely inside the grid!) */}
+          {/* Right Side: The Preview Component */}
           <GlassPreview blur={blur} opacity={opacity} color={color} borderOpacity={borderOpacity} />
           
         </div>

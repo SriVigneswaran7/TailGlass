@@ -2,7 +2,10 @@
 
 A modern, interactive visual generator for Glassmorphism UI components. Built entirely with React and Tailwind CSS v4.
 
-![TailGlass Preview](./screenshot.png)
+| TailGlass Interface |
+| :---------: |
+| ![TailGlass Preview](./screenshot.png) | 
+
 
 ## What is this?
 
@@ -17,7 +20,7 @@ I built TailGlass to fix that workflow. It's a visual sandbox that lets you dial
 * **Context Testing:** Toggle between default blobs, mesh gradients, and high-res photography to ensure your text stays readable in real-world scenarios.
 * **Quick Presets:** One-click buttons for standard looks like 'Frosted', 'Ghost', and 'Deep Sea'.
 * **Dual Export:** Export to raw CSS or instantly copy the exact string of Tailwind v4 utility classes.
-* **Modular Architecture:** Built with clean, separated React components for easy scaling.
+* **Modular Architecture:** Built with clean, separated React components for easy scaling and maintenance.
 
 ## Tech Stack
 
@@ -47,6 +50,10 @@ If you want to pull this down and run it on your own machine, you'll need Node.j
 2. Use the background toggles in the top-left of the preview window to test how the glass reacts to different lighting and images.
 3. Once you're happy, hit either **Copy CSS Code** or **Copy Tailwind Classes**.
 4. Paste the generated code directly into your project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
