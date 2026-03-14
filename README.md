@@ -1,5 +1,7 @@
 # TailGlass
 
+**Live Demo: [https://tail-glass.vercel.app](https://tail-glass.vercel.app)**
+
 A modern, interactive visual generator for Glassmorphism UI components. Built entirely with React and Tailwind CSS v4.
 
 | TailGlass Interface |
