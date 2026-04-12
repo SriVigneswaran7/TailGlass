@@ -1,5 +1,11 @@
 # TailGlass
 
+![React](https://img.shields.io/badge/React-Framework-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4)
+![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF)
+![Deployed](https://img.shields.io/badge/Deployed-Vercel-black)
+![License](https://img.shields.io/badge/License-MIT-success)
+
 **Live Demo: [https://tail-glass.vercel.app](https://tail-glass.vercel.app)**
 
 A modern, interactive visual generator for Glassmorphism UI components. Built entirely with React and Tailwind CSS v4.
